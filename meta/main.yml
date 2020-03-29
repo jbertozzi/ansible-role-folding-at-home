@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: folding-at-home
   author: Jérémy Bertozzi
   description: Install and configure Folding@Home
 
