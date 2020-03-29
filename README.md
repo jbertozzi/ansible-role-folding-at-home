@@ -23,7 +23,7 @@ The role only configure the client.
 ---
 - hosts: servers
   roles:
-     - role: fodling-at-home
+     - role: folding-at-home
       vars:
         folding_at_home_team: 8767858458
         folding_at_home_passkey: secret
