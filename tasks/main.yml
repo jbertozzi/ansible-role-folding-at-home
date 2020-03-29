@@ -10,6 +10,8 @@
       owner: root
       group: root
       state: directory
+    become: true
+    become_user: root
 
   - name: Configure software
     template:
