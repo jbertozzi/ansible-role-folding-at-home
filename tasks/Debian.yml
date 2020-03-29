@@ -3,73 +3,75 @@
 - name: Install fahclient
   block:
 
-  - name: Check if fahclient is already installed
-    command: dpkg-query -W fahclient
-    register: fahclient_installed
-    failed_when: false
-    changed_when: false
+    - name: Check if fahclient is already installed
+      command: dpkg-query -W fahclient
+      register: fahclient_installed
+      failed_when: false
+      changed_when: false
 
-  - name: Download fahclient
-    get_url:
-      url: "{{ folding_at_home_fahclient_url[ansible_os_family] }}"
-      dest: /var/tmp/fahclient.deb
-    when: fahclient_installed.rc == 1
+    - name: Download fahclient
+      get_url:
+        url: "{{ folding_at_home_fahclient_url[ansible_os_family] }}"
+        dest: /var/tmp/fahclient.deb
+      when: fahclient_installed.rc == 1
 
-  - name: Install fahclient
-    apt:
-      deb: /var/tmp/fahclient.deb
-      state: present
-    become_user: root
-    become: true
-    when: fahclient_installed.rc == 1
+    - name: Install fahclient
+      apt:
+        deb: /var/tmp/fahclient.deb
+        state: present
+      become: true
+      become_user: root
+      when: fahclient_installed.rc == 1
 
   when: folding_at_home_install_fahclient
 
 - name: Install fahcontrol
   block:
 
-  - name: Check if fahcontrol is already installed
-    command: dpkg-query -W fahcontrol
-    register: fahcontrol_installed
-    failed_when: false
-    changed_when: false
+    - name: Check if fahcontrol is already installed
+      command: dpkg-query -W fahcontrol
+      register: fahcontrol_installed
+      failed_when: false
+      changed_when: false
 
-  - name: Download fahcontrol
-    get_url:
-      url: "{{ folding_at_home_fahcontrol_url[ansible_os_family] }}"
-      dest: /var/tmp/fahcontrol.deb
-    when: fahcontrol_installed.rc == 1
+    - name: Download fahcontrol
+      get_url:
+        url: "{{ folding_at_home_fahcontrol_url[ansible_os_family] }}"
+        dest: /var/tmp/fahcontrol.deb
+      when: fahcontrol_installed.rc == 1
 
-  - name: Install fahcontrol
-    apt:
-      deb: /var/tmp/fahcontrol.deb
-      state: present
-    become_user: root
-    when: fahcontrol_installed.rc == 1
+    - name: Install fahcontrol
+      apt:
+        deb: /var/tmp/fahcontrol.deb
+        state: present
+      become: true
+      become_user: root
+      when: fahcontrol_installed.rc == 1
 
   when: folding_at_home_install_fahcontrol
 
 - name: Install fahviewer
   block:
 
-  - name: Check if fahviewer is already installed
-    command: dpkg-query -W fahviewer
-    register: fahviewer_installed
-    failed_when: false
-    changed_when: false
+    - name: Check if fahviewer is already installed
+      command: dpkg-query -W fahviewer
+      register: fahviewer_installed
+      failed_when: false
+      changed_when: false
 
-  - name: Download fahviewer
-    get_url:
-      url: "{{ folding_at_home_fahviewer_url[ansible_os_family] }}"
-      dest: /var/tmp/fahviewer.deb
-    when: fahviewer_installed.rc == 1
+    - name: Download fahviewer
+      get_url:
+        url: "{{ folding_at_home_fahviewer_url[ansible_os_family] }}"
+        dest: /var/tmp/fahviewer.deb
+      when: fahviewer_installed.rc == 1
 
-  - name: Install fahviewer
-    apt:
-      deb: /var/tmp/fahviewer.deb
-      state: present
-    become_user: root
-    when: fahviewer_installed.rc == 1
+    - name: Install fahviewer
+      apt:
+        deb: /var/tmp/fahviewer.deb
+        state: present
+      become: true
+      become_user: root
+      when: fahviewer_installed.rc == 1
 
   when: folding_at_home_install_fahviewer
 

@@ -5,5 +5,5 @@
     name: FAHClient
     state: restarted
     use: service
-  become_user: root
   become: true
+  become_user: root
