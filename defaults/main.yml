@@ -1,0 +1,21 @@
+---
+# defaults file for folding-at-home
+folding_at_home_fahclient_url:
+  Debian: https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahclient_7.4.4_amd64.deb
+  RedHat: https://download.foldingathome.org/releases/public/release/fahclient/centos-5.3-64bit/v7.4/fahclient-7.4.4-1.x86_64.rpm
+folding_at_home_fahcontrol_url:
+  Debian: https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahcontrol_7.4.4_amd64.deb
+  RedHat: https://download.foldingathome.org/releases/public/release/fahcontrol/centos-5.3-64bit/v7.4/fahcontrol-7.4.4-1.noarch.rpm
+folding_at_home_fahviewer_url:
+  Debian: https://download.foldingathome.org/releases/public/release/fahclient/debian-testing-64bit/v7.4/fahviewer_7.4.4_amd64.deb
+  RedHat: https://download.foldingathome.org/releases/public/release/fahviewer/centos-5.3-64bit/v7.4/fahviewer-7.4.4-1.x86_64.rpm
+
+folding_at_home_install_fahclient: true
+folding_at_home_install_fahcontrol: false
+folding_at_home_install_fahviewer: false
+folding_at_home_user: nobody #seems to be ignored anyway, user is hardcoded in init script
+folding_at_home_team: 0
+folding_at_home_passkey: ""
+folding_at_home_power: medium
+folding_at_home_use_gpu: false
+folding_at_home_tmp_dir: /var/tmp
