@@ -1,31 +1,20 @@
 ---
 # tasks file for folding-at-home
 #
-- name: Create fahclient configuration
-  block:
-  - name: Create directory
-    file:
-      dest: /etc/fahclient
-      mode: 0755
-      owner: root
-      group: root
-      state: directory
-    become: true
-    become_user: root
-
-  - name: Configure software
-    template:
-      dest: /etc/fahclient/config.xml
-      src: config.xml.j2
-      owner: root
-      group: root
-      mode: 0644
-    become_user: root
-    become: true
-    notify: restart fahclient
 
 - name: Install software
   include_tasks: "{{ ansible_os_family }}.yml"
+
+- name: Configure software
+  template:
+    dest: /etc/fahclient/config.xml
+    src: config.xml.j2
+    owner: root
+    group: root
+    mode: 0644
+  become_user: root
+  become: true
+  notify: restart fahclient
 
 - name: Start fahclient
   service:
