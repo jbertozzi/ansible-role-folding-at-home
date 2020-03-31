@@ -1,9 +1,12 @@
 ---
 # handlers file for folding-at-home
 - name: restart fahclient
-  service:
-    name: FAHClient
-    state: restarted
-    use: service
+  shell: service FAHClient stop ; service FAHClient start # ugly workaround, service module does not play well with FAHClient
+  args:
+    warn: false
   become: true
   become_user: root
+#  service:
+#    name: FAHClient
+#    state: restarted
+#    use: service
