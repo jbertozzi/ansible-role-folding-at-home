@@ -5,4 +5,8 @@
   <passkey value="{{ folding_at_home_passkey }}"/>
   <power value="{{ folding_at_home_power }}"/>
   <gpu value="{{ folding_at_home_use_gpu }}"/>
+{% if folding_at_home_proxy is defined %}
+  <proxy value={{ folding_at_home_proxy }}" />
+  <proxy-enable value="true"
+{% endif %}
 </config>
