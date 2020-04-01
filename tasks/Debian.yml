@@ -15,6 +15,11 @@
         dest: /var/tmp/fahclient.deb
       when: fahclient_installed.rc == 1
 
+    - name: Install procps dependency (needed by init script)
+      apt:
+        name: procps
+        state: present
+
     - name: Install fahclient
       apt:
         deb: /var/tmp/fahclient.deb
