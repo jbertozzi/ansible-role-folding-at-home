@@ -17,6 +17,11 @@
         dest: /var/tmp/fahclient.rpm
       when: fahclient_installed.rc == 1
 
+    - name: Install procps dependency (needed by init script)
+      yum:
+        name: procps
+        state: present
+
     - name: Install fahclient
       yum:
         name: /var/tmp/fahclient.rpm
