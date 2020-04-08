@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include folding-at-home"
+      include_role:
+        name: "folding-at-home"
